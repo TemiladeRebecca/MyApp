@@ -1,0 +1,43 @@
+import "react-native-get-random-values";
+import { v4 as uuidv4 } from "uuid";
+
+// Define the structure of an image item
+export interface ImageItem {
+  id: string;
+  imageUrl: string;
+  name: string;
+}
+
+// Sample images data
+export const sampleImages: ImageItem[] = [
+  {
+    id: uuidv4(),
+    imageUrl: "https://cdn.pixabay.com/photo/2024/07/19/12/23/woman-8906207_640.jpg",
+    name: "Display",
+  },
+  {
+    id: uuidv4(),
+    imageUrl: "https://cdn.pixabay.com/photo/2025/01/23/10/59/ai-generated-9354449_640.jpg",
+    name: "Promotion",
+  },
+  {
+    id: uuidv4(),
+    imageUrl: "https://cdn.pixabay.com/photo/2024/05/29/21/11/woman-8797240_640.png",
+    name: "Branding",
+  },
+  {
+    id: uuidv4(),
+    imageUrl: "https://cdn.pixabay.com/photo/2024/02/20/08/45/woman-8584979_640.jpg",
+    name: "Promotion",
+  },
+  {
+    id: uuidv4(),
+    imageUrl: "https://cdn.pixabay.com/photo/2024/04/12/15/46/beautiful-8692180_640.png",
+    name: "Product",
+  },
+  {
+    id: uuidv4(),
+    imageUrl: "https://cdn.pixabay.com/photo/2023/08/17/05/55/ai-generated-8195533_640.png",
+    name: "Branding",
+  },
+];
