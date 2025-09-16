@@ -1,24 +1,41 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import React, { useState } from "react";
+import { StatusBar, useColorScheme } from "react-native";
+import { Stack } from "expo-router";
+import {
+  useFonts,
+  Poppins_400Regular,
+  Poppins_600SemiBold,
+} from "@expo-google-fonts/poppins";
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { ThemeProvider } from "../themes/themeContext";
 
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+type ThemeMode = "light" | "dark" | "system";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const systemScheme = useColorScheme(); // "light" | "dark"
+  const [themeMode, setThemeMode] = useState<ThemeMode>("system");
+
+  const [fontsLoaded] = useFonts({
+    Poppins_400Regular,
+    Poppins_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
+  const resolvedMode: "light" | "dark" =
+    themeMode === "system"
+      ? (systemScheme as "light" | "dark") || "light"
+      : themeMode;
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
+    <ThemeProvider mode={resolvedMode} setMode={setThemeMode}>
+      <StatusBar
+        barStyle={resolvedMode === "dark" ? "light-content" : "dark-content"}
+        backgroundColor={resolvedMode === "dark" ? "#000" : "#fff"}
+      />
+      <Stack screenOptions={{ headerShown: false }} />
     </ThemeProvider>
   );
 }
