@@ -9,6 +9,7 @@ import {
   Dimensions,
   Alert,
   ScrollView,
+  SafeAreaView,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import ToggleTabs from "./widgets/toggleTabs";
@@ -16,6 +17,7 @@ import CustomButton from "./custom/customButton";
 import { sampleImages } from "../data/sampleImages";
 import BaseScreen from "./widgets/basescreen";
 import { useTheme } from "../themes/themeContext";
+
 
 const { width: screenWidth } = Dimensions.get("window");
 
@@ -37,18 +39,20 @@ const HomeScreen: React.FC = () => {
   return (
     <BaseScreen scrollable padding={20} backgroundColor={mode === "dark" ? "#000" : "#fff"} 
       appBar={
-        <View style={styles.appBar}>
-          <TouchableOpacity onPress={() => Alert.alert("Close pressed")}>
-            <Ionicons name="close" size={24} color={mode === "dark" ? "#fff" : "#000"} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleToggle}>
-            <Ionicons
-              name={mode === "dark" ? "moon" : "sunny"}
-              size={24}
-              color={mode === "dark" ? "#fff" : "#000"}
-            />
-          </TouchableOpacity>
-        </View>
+        <SafeAreaView>
+          <View style={[styles.appBar, { marginHorizontal: 20, marginTop: 28 }]}>
+            <TouchableOpacity onPress={() => Alert.alert("Close pressed")}>
+              <Ionicons name="close" size={32} color={mode === "dark" ? "#fff" : "#000"} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleToggle}>
+              <Ionicons
+                name={mode === "dark" ? "moon" : "sunny"}
+                size={28}
+                color={mode === "dark" ? "#fff" : "#000"}
+              />
+            </TouchableOpacity>
+          </View>
+        </SafeAreaView>
       }
     >
       {/* Toggle Tabs */}
@@ -135,7 +139,9 @@ const HomeScreen: React.FC = () => {
       {/* Generate Button */}
       <CustomButton
         text="Generate"
-        marginVertical={12}
+        marginVertical={10}
+        backgroundColor={mode === "dark" ? "#fff" : "#333"}
+        textColor={mode === "dark" ? "#333" : "#fff"} 
         imagePath="https://cdn.pixabay.com/photo/2015/05/22/19/01/business-779542_640.jpg"
         onPress={() => Alert.alert("Generate pressed")}
       />
@@ -151,7 +157,6 @@ const getStyles = (mode: ThemeMode) =>
       justifyContent: "space-between",
       alignItems: "center",
       paddingVertical: 12,
-      paddingHorizontal: 16,
       backgroundColor: mode === "dark" ? "#000" : "#fff",
     },
     heading: {
