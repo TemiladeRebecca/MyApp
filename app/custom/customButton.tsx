@@ -11,6 +11,8 @@ type CustomButtonProps = {
   text: string;
   imagePath: string;
   onPress: () => void;
+  backgroundColor: string;
+  textColor: string;
   marginVertical?: number;
 };
 
@@ -18,16 +20,18 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   text,
   imagePath,
   onPress,
-  marginVertical = 8,
+  backgroundColor,
+  textColor,
+  marginVertical = 10,
 }) => {
   return (
     <TouchableOpacity
-      style={[styles.button, { marginVertical }]}
+      style={[styles.button, { marginVertical, backgroundColor }]}
       onPress={onPress}
     >
       <View style={styles.content}>
         <Image source={{ uri: imagePath }} style={styles.icon} />
-        <Text style={styles.text}>{text}</Text>
+        <Text style={[styles.text, { color: textColor }]}>{text}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -37,7 +41,7 @@ const styles = StyleSheet.create({
   button: {
     width: "100%",
     height: 60,
-    backgroundColor: "#333",
+    // backgroundColor: "#fff",
     borderRadius: 12,
     justifyContent: "center",
     paddingHorizontal: 16,
@@ -54,7 +58,7 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   text: {
-    color: "#fff",
+    // color: "#333",
     fontSize: 16,
     fontWeight: "600",
   },
