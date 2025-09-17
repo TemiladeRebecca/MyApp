@@ -20,7 +20,7 @@ const BaseScreen: React.FC<BaseScreenProps> = ({
   appBar,
   scrollable = false,
   padding = 20,
-  backgroundColor = "#fff", // default
+  backgroundColor = "#fff",
 }) => {
   const content = (
     <View style={[styles.content, typeof padding === "number" ? { padding } : padding]}>
