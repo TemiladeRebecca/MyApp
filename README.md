@@ -1,50 +1,62 @@
-# Welcome to your Expo app 👋
+# Demo App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a simple React Native(Expo) application built for an internship position.
+It demonstrates basic UI design, navigation, and state management using React.
 
-## Get started
+---
 
-1. Install dependencies
+## ✨ Features
+
+- 🏠 Home Screen : Displays a list of images.
+-  Image Interaction: Tap on any image to view details, add a description for the selected image, upload a new image
+- Generate Button: A placeholder action button to show interactivity.
+
+---
+
+## 🛠️ Built With
+
+- **React Native**
+- **TypeScript**
+- **Expo**
+
+---
+
+## 📦 Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/TemiladeRebecca/MyApp.git
+   cd MyApp
+   ```
+
+2. Install dependencies:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Run the app:
 
    ```bash
-   npx expo start
+   npm expo start
    ```
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+---
 
-## Get a fresh project
 
-When you're ready, run:
+## 📜 License
 
-```bash
-npm run reset-project
-```
+This project is open-source and available under the [MIT License](LICENSE).
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 👨‍💻 Author
 
-To learn more about developing your project with Expo, look at the following resources:
+- **Talabi Rebecca**  
+  [LinkedIn](https://linkedin.com/in/talabirebecca-virtualdev) | [GitHub](https://github.com/TemiladeRebecca)
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
